@@ -12,13 +12,36 @@ public class EnergyManager : MonoBehaviour
     {
         instance = this;
     }
-    void CheckStaminaOnBed()
+    public bool CheckEnergyOnBed()
     {
-       
+        if (energy >= maxEnergy)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
-    void CheckStaminaOnStream()
+    void CheckEnergyOnStream()
     {
-        
 
+
+    }
+    public IEnumerator LoseEnergy(float amount)
+    {
+        while (energy > 0)
+        {
+            energy -= amount * Time.deltaTime;
+            yield return null;
+        }
+    }
+    public IEnumerator GainEnergy(float amount)
+    {
+        while (energy < maxEnergy)
+        {
+            energy += amount * Time.deltaTime;
+            yield return null;
+        }
     }
 }

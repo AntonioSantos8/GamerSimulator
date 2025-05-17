@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public enum PlayerState
 {
     Sit,
-    Straming,
+    Streaming,
     Sleeping,
     Walking
 }
@@ -41,7 +41,7 @@ public class PlayerStates : MonoBehaviour
                 //Arrumar posição e rotação do player
                
                 break;
-            case PlayerState.Straming:
+            case PlayerState.Streaming:
                 // Handle streaming state
                 //perder energia
                 break;
