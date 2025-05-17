@@ -10,6 +10,9 @@ public class EarnMoneyManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        PlayerStates.instance.OnStream.AddListener(delegate {
+            StartCoroutine(EarnMoney());
+        });
     }
 
     // Update is called once per frame
