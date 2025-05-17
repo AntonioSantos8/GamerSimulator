@@ -3,7 +3,7 @@ using UnityEngine;
 public class Money : MonoBehaviour
 {
     public static Money instance;
-    float money;
+    public float money;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,4 +15,5 @@ public class Money : MonoBehaviour
     {
         
     }
+
 }
