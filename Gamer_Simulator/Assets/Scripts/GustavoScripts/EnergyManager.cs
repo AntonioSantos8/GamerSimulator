@@ -12,9 +12,13 @@ public class EnergyManager : MonoBehaviour
     {
         instance = this;
     }
-    void CheckStamina()
+    void CheckStaminaOnBed()
     {
-
+       
+    }
+    void CheckStaminaOnStream()
+    {
+        
 
     }
 }

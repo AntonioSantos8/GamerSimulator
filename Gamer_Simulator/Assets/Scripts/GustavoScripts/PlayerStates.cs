@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum PlayerState
 {
@@ -11,6 +12,8 @@ public class PlayerStates : MonoBehaviour
 {
     public static PlayerStates instance;
     public PlayerState currentState;
+
+    public UnityEvent OnSit, OnStream, OnSleep, OnWalk;
     void Awake()
     {
         instance = this;
@@ -45,7 +48,7 @@ public class PlayerStates : MonoBehaviour
             case PlayerState.Sleeping:
                 //animacao de dormir 
                 //Ganhar energia
-                //arrumar posicao e rotacao do player
+                    //arrumar posicao e rotacao do player
                 break;
         }
     }
