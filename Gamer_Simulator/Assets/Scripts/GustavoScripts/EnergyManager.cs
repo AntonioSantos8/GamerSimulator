@@ -51,7 +51,7 @@ public class EnergyManager : MonoBehaviour
     public IEnumerator GainEnergy()
     {
 
-        energy -= energyGain; 
+        energy -= energyToGain; 
         energy = Mathf.Clamp(energy, 0, maxEnergy);
         yield return new WaitForSeconds(1f);
         if (CanGetEnergy())
