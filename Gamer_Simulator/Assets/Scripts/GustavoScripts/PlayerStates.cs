@@ -28,18 +28,28 @@ public class PlayerStates : MonoBehaviour
     public void ChangeState(PlayerState newState)
     {
         if (currentState == newState)
+        {
             return;
+        }
+        
 
+        
         currentState = newState;
+        if (currentState != PlayerState.Streaming)
+        {
+            EarnMoneyManager.instance.StopAllCoroutines();
+
+
+         }
        switch (currentState)
         {
             case PlayerState.Sit:
                 // Handle sit state
                 break;
-                 case PlayerState.Walking:
+            case PlayerState.Walking:
                 //Animação de andar
                 //Arrumar posição e rotação do player
-               
+
                 break;
             case PlayerState.Streaming:
                 // Handle streaming state
@@ -48,7 +58,7 @@ public class PlayerStates : MonoBehaviour
             case PlayerState.Sleeping:
                 //animacao de dormir 
                 //Ganhar energia
-                    //arrumar posicao e rotacao do player
+                //arrumar posicao e rotacao do player
                 break;
         }
     }

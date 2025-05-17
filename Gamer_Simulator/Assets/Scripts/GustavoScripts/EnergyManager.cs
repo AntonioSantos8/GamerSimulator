@@ -1,18 +1,21 @@
 using UnityEngine;
-
+using System.Collections;
+using UnityEngine.UI;
 public class EnergyManager : MonoBehaviour
 {
     public static EnergyManager instance;
     public float energy;
     [SerializeField] float maxEnergy = 100f;
-    [SerializeField] float minSleepEnergy = 20f;
-
+    [SerializeField] float minSleepEnergy = 0f;
+    [SerializeField] float energyToLose;
+       [SerializeField] float energyToGain;
+    [SerializeField] Image energyBar;
 
     private void Awake()
     {
         instance = this;
     }
-    public bool CheckEnergyOnBed()
+     bool CanGetEnergy()
     {
         if (energy >= maxEnergy)
         {
@@ -23,25 +26,38 @@ public class EnergyManager : MonoBehaviour
             return true;
         }
     }
-    void CheckEnergyOnStream()
+     bool CanLoseEnergy()
     {
-
+        if (energy >= minSleepEnergy)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 
     }
-    public IEnumerator LoseEnergy(float amount)
+    public IEnumerator LoseEnergy()
     {
-        while (energy > 0)
+        energy -= energyToLose; 
+        energy = Mathf.Clamp(energy, 0, minSleepEnergy);
+        yield return new WaitForSeconds(1f);
+        if (CanLoseEnergy())
         {
-            energy -= amount * Time.deltaTime;
-            yield return null;
+            StartCoroutine(LoseEnergy());
         }
     }
-    public IEnumerator GainEnergy(float amount)
+    public IEnumerator GainEnergy()
     {
-        while (energy < maxEnergy)
+
+        energy -= energyGain; 
+        energy = Mathf.Clamp(energy, 0, maxEnergy);
+        yield return new WaitForSeconds(1f);
+        if (CanGetEnergy())
         {
-            energy += amount * Time.deltaTime;
-            yield return null;
+            StartCoroutine(GainEnergy());
+
         }
     }
 }
