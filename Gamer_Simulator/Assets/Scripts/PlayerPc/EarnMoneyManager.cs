@@ -19,11 +19,8 @@ public class EarnMoneyManager : MonoBehaviour
     }
     IEnumerator EarnMoney()
     {
-        while (true)
-        {
-            Money.instance.money += moneyToEarn;
-            yield return new WaitForSeconds(cooldownEarn);
-            StartCoroutine(EarnMoney());
-        }
+        Money.instance.money += moneyToEarn;
+        yield return new WaitForSeconds(cooldownEarn);
+        StartCoroutine(EarnMoney());
     }
 }
