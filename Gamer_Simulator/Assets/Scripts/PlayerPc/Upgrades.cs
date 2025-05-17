@@ -26,7 +26,7 @@ public class Upgrades : MonoBehaviour
     {
 
     }
-    public void Upgrade(TypeOfUpgrade upgradeType)
+    void Upgrade(TypeOfUpgrade upgradeType)
     {
         switch (upgradeType)
         {
@@ -103,5 +103,14 @@ public class Upgrades : MonoBehaviour
                 break;
         }
     }
+    public void UpgradeMouse() => Upgrade(TypeOfUpgrade.MouseUpg);
+public void UpgradeMonitor() => Upgrade(TypeOfUpgrade.MonitorUpg);
+public void UpgradeKeyboard() => Upgrade(TypeOfUpgrade.KeyBoardUpg);
+public void UpgradeChair() => Upgrade(TypeOfUpgrade.ChairUpg);
+public void UpgradeHeadphone() => Upgrade(TypeOfUpgrade.HeadphoneUpg);
+public void UpgradeWebcam() => Upgrade(TypeOfUpgrade.WebcamUpg);
+public void UpgradeBed() => Upgrade(TypeOfUpgrade.BedUpg);
+public void UpgradePc() => Upgrade(TypeOfUpgrade.PcUpg);
+
 }
 

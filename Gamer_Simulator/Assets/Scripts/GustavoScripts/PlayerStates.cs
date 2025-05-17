@@ -6,14 +6,15 @@ public enum PlayerState
     Sit,
     Streaming,
     Sleeping,
-    Walking
+    WalkingToBed,
+    WalkingToChair
 }
 public class PlayerStates : MonoBehaviour
 {
     public static PlayerStates instance;
     public PlayerState currentState;
 
-    public UnityEvent OnSit, OnStream, OnSleep, OnWalk;
+    public UnityEvent OnSit, OnStream, OnSleep, OnWalkToBed, OnWalkToChair;
     void Awake()
     {
         instance = this;
@@ -69,18 +70,22 @@ public class PlayerStates : MonoBehaviour
        switch (currentState)
         {
             case PlayerState.Sit:
-                // Handle sit state
+                    OnSit?.Invoke();
                 break;
-            case PlayerState.Walking:
-                //Animação de andar
-                //Arrumar posição e rotação do player
+            case PlayerState.WalkingToBed:
+                OnWalkToBed?.Invoke();
+
+                break;
+                case PlayerState.WalkingToChair:
+                OnWalkToChair?.Invoke();
 
                 break;
             case PlayerState.Streaming:
-                // Handle streaming state
+                OnStream?.Invoke();
                 //perder energia
                 break;
             case PlayerState.Sleeping:
+            OnSleep?.Invoke();
                 //animacao de dormir 
                 //Ganhar energia
                 //arrumar posicao e rotacao do player

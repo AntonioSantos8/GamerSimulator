@@ -10,8 +10,8 @@ public class EnergyManager : MonoBehaviour
     [SerializeField] float energyToLose;
        [SerializeField] float energyToGain;
     [SerializeField] Image energyBar;
-    Coroutine loseEnergyCoroutine;
-    Coroutine gainEnergyCoroutine;
+    [HideInInspector]public Coroutine loseEnergyCoroutine;
+    [HideInInspector]public Coroutine gainEnergyCoroutine;
 
     private void Awake()
     {
