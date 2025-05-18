@@ -1179,8 +1179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f439c0eac73a94b47b31cceb7a5db48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyToEarn: 0
+  moneyToEarn: 1
   cooldownEarn: 5
+  moneyTxt: {fileID: 273200662}
 --- !u!114 &858301987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1379,7 @@ Transform:
   m_GameObject: {fileID: 986645835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.01859, y: -0.01986, z: 0}
+  m_LocalPosition: {x: 0.01859, y: -0.01973, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1497,7 +1498,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 57.5
+  field of view: 64.6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1523,13 +1524,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041832451}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1521768, y: 0.8409537, z: -0.35858122, w: 0.37557784}
+  m_LocalRotation: {x: 0.14749199, y: 0.84577554, z: -0.36053348, w: 0.3645894}
   m_LocalPosition: {x: -1.113, y: 2.198, z: 0.944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45.841, y: 131.402, z: -1.102}
+  m_LocalEulerAnglesHint: {x: 45.841, y: 132.895, z: -1.102}
 --- !u!114 &1041832455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,7 +1814,7 @@ Transform:
   m_GameObject: {fileID: 1868753936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01986, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01952, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13794,11 +13795,11 @@ SceneRoots:
   - {fileID: 5494110691438565548}
   - {fileID: 319218494}
   - {fileID: 5088929688678215257}
-  - {fileID: 858301985}
   - {fileID: 933763998}
   - {fileID: 1304420830890394642}
   - {fileID: 131703713}
   - {fileID: 4365000222301274206}
   - {fileID: 739701088}
+  - {fileID: 858301985}
   - {fileID: 312035648}
   - {fileID: 1918167619}
