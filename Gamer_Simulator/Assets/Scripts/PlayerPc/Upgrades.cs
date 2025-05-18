@@ -15,6 +15,7 @@ public class Upgrades : MonoBehaviour
     int mouseLevel = 0, monitorLevel = 0, keyboardLevel = 0, chairLevel = 0, headphoneLevel = 0, webcamLevel = 0, bedLevel = 0, pcLevel = 0;
     int levelMax = 9;
     [SerializeField] GameObject[] mouseGmj, monitorGmj, keyBoardGmj, chairGmj, headphoneGmj, webcamGmj, bedGmj, pcGmj;
+    [SerializeField]float[] mouseUpgCost, monitorUpgCost, keyBoardUpgCost, chairUpgCost, headphoneUpgCost, webcamUpgCost, bedUpgCost, pcUpgCost;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,75 +32,82 @@ public class Upgrades : MonoBehaviour
         switch (upgradeType)
         {
             case TypeOfUpgrade.MouseUpg:
-                if (mouseLevel < levelMax)
+                if (Money.instance.money >= mouseUpgCost[mouseLevel] && mouseLevel < levelMax)
                 {
                     mouseLevel++;
                     mouseGmj[mouseLevel].SetActive(true);
                     mouseGmj[mouseLevel - 1].SetActive(false);
-                    Debug.Log(mouseLevel);
+                    Money.instance.money -= mouseUpgCost[mouseLevel];
                 }
                 break;
 
             case TypeOfUpgrade.MonitorUpg:
-                if (monitorLevel < levelMax)
+                if (Money.instance.money >= monitorUpgCost[monitorLevel] && monitorLevel < levelMax)
                 {
                     monitorLevel++;
                     monitorGmj[monitorLevel].SetActive(true);
                     monitorGmj[monitorLevel - 1].SetActive(false);
+                    Money.instance.money -= monitorUpgCost[monitorLevel];
                 }
                 break;
 
             case TypeOfUpgrade.KeyBoardUpg:
-                if (keyboardLevel < levelMax)
+                if (Money.instance.money >= keyBoardUpgCost[keyboardLevel] && keyboardLevel < levelMax)
                 {
                     keyboardLevel++;
                     keyBoardGmj[keyboardLevel].SetActive(true);
                     keyBoardGmj[keyboardLevel - 1].SetActive(false);
+                    Money.instance.money -= keyBoardUpgCost[keyboardLevel];
                 }
                 break;
 
             case TypeOfUpgrade.ChairUpg:
-                if (chairLevel < levelMax)
+                if (Money.instance.money >= chairUpgCost[chairLevel] && chairLevel < levelMax)
                 {
                     chairLevel++;
                     chairGmj[chairLevel].SetActive(true);
                     chairGmj[chairLevel - 1].SetActive(false);
+                    Money.instance.money -= chairUpgCost[chairLevel];
                 }
                 break;
 
             case TypeOfUpgrade.HeadphoneUpg:
-                if (headphoneLevel < levelMax)
+                if (Money.instance.money >= headphoneUpgCost[headphoneLevel] && headphoneLevel < levelMax)
                 {
                     headphoneLevel++;
                     headphoneGmj[headphoneLevel].SetActive(true);
                     headphoneGmj[headphoneLevel - 1].SetActive(false);
+                    Money.instance.money -= headphoneUpgCost[headphoneLevel];
                 }
                 break;
 
             case TypeOfUpgrade.WebcamUpg:
-                if (webcamLevel < levelMax)
+                if (Money.instance.money >= webcamUpgCost[webcamLevel] && webcamLevel < levelMax)
                 {
                     webcamLevel++;
                     webcamGmj[webcamLevel].SetActive(true);
                     webcamGmj[webcamLevel - 1].SetActive(false);
+                    Money.instance.money -= webcamUpgCost[webcamLevel];
                 }
                 break;
 
             case TypeOfUpgrade.BedUpg:
-                if (bedLevel < levelMax)
+                if (Money.instance.money >= bedUpgCost[bedLevel] && bedLevel < levelMax)
                 {
                     bedLevel++;
                     bedGmj[bedLevel].SetActive(true);
                     bedGmj[bedLevel - 1].SetActive(false);
+                    Money.instance.money -= bedUpgCost[bedLevel];
                 }
                 break;
 
             case TypeOfUpgrade.PcUpg:
-                if (pcLevel < levelMax)
+                if (Money.instance.money >= pcUpgCost[pcLevel] && pcLevel < levelMax)
                 {
                     pcLevel++;
                     pcGmj[pcLevel].SetActive(true);
                     pcGmj[pcLevel - 1].SetActive(false);
+                    Money.instance.money -= pcUpgCost[pcLevel];
                 }
                 break;
         }
