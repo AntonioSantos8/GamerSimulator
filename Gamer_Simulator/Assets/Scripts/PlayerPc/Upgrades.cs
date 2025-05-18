@@ -12,8 +12,8 @@ public enum TypeOfUpgrade
 }
 public class Upgrades : MonoBehaviour
 {
-    int mouseLevel = 1, monitorLevel = 1, keyboardLevel = 1, chairLevel = 1, headphoneLevel = 1, webcamLevel = 1, bedLevel = 1, pcLevel = 1;
-    int levelMax = 10;
+    int mouseLevel = 0, monitorLevel = 0, keyboardLevel = 0, chairLevel = 0, headphoneLevel = 0, webcamLevel = 0, bedLevel = 0, pcLevel = 0;
+    int levelMax = 9;
     [SerializeField] GameObject[] mouseGmj, monitorGmj, keyBoardGmj, chairGmj, headphoneGmj, webcamGmj, bedGmj, pcGmj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +36,7 @@ public class Upgrades : MonoBehaviour
                     mouseLevel++;
                     mouseGmj[mouseLevel].SetActive(true);
                     mouseGmj[mouseLevel - 1].SetActive(false);
+                    Debug.Log(mouseLevel);
                 }
                 break;
 
@@ -103,7 +104,7 @@ public class Upgrades : MonoBehaviour
                 break;
         }
     }
-    public void UpgradeMouse() => Upgrade(TypeOfUpgrade.MouseUpg);
+public void UpgradeMouse() => Upgrade(TypeOfUpgrade.MouseUpg);
 public void UpgradeMonitor() => Upgrade(TypeOfUpgrade.MonitorUpg);
 public void UpgradeKeyboard() => Upgrade(TypeOfUpgrade.KeyBoardUpg);
 public void UpgradeChair() => Upgrade(TypeOfUpgrade.ChairUpg);
