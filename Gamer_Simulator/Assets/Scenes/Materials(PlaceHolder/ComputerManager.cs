@@ -15,7 +15,10 @@ public class ComputerManager : MonoBehaviour
    {
        if (Input.GetKeyDown(KeyCode.E) && PlayerStates.instance.currentState == PlayerState.Sit)
        {
-              computerUi.SetActive(!computerUi.activeSelf);
+            if (PlayerStates.instance.currentState == PlayerState.Sit || PlayerStates.instance.currentState == PlayerState.Streaming)
+            {
+                computerUi.SetActive(!computerUi.activeSelf);
+            }
 
              
          
