@@ -8,21 +8,25 @@ public class PayCheck : MonoBehaviour
     public Button payButton;
     
     float amountToPay;
+      public   float daysTillEnd;
+ 
     public void UpdatePayCheck(float amount, float timeTillEnd)
     {
 
         amountToPay = amount;
-        amountText.text = "$" + amount.ToString("F2");
+        daysTillEnd = timeTillEnd;
+                amountText.text = "$" + amount.ToString();
         timeTillEndText.text = timeTillEnd.ToString("F2") + " Days";
 
 
-payButton.onClick.AddListener(() => Pay());
-        
+        payButton.onClick.AddListener(() => Pay());
+
     }
     void Pay()
     {
         if (Money.instance.money >= amountToPay)
         {
+            PayCounts.instance.payChecks.Remove(this);
             Money.instance.money -= amountToPay;
             Destroy(gameObject);
         }
