@@ -20,33 +20,18 @@ public class PlayerStates : MonoBehaviour
         instance = this;
         currentState = PlayerState.Sit;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
     public void ChangeState(PlayerState newState)
     {
 
         PlayerState previousState = currentState;
         if (previousState == PlayerState.Sleeping)
         {
-            // Stop sleeping coroutine
-            if (EnergyManager.instance.gainEnergyCoroutine != null)
-            {
-                StopCoroutine(EnergyManager.instance.gainEnergyCoroutine);
-                EnergyManager.instance.gainEnergyCoroutine = null;
-            }
+           EnergyManager.instance.StopAllCoroutines();
+           
         }
         if (previousState == PlayerState.Streaming)
         {
-            // Stop streaming coroutine
-            if (EnergyManager.instance.loseEnergyCoroutine != null)
-            {
-                StopCoroutine(EnergyManager.instance.loseEnergyCoroutine);
-                EnergyManager.instance.loseEnergyCoroutine = null;
-            }
+             EnergyManager.instance.StopAllCoroutines();
         }
         {
             
