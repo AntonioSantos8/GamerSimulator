@@ -34,80 +34,80 @@ public class Upgrades : MonoBehaviour
             case TypeOfUpgrade.MouseUpg:
                 if (Money.instance.money >= mouseUpgCost[mouseLevel] && mouseLevel < levelMax)
                 {
+                    Money.instance.money -= mouseUpgCost[mouseLevel];
                     mouseLevel++;
                     mouseGmj[mouseLevel].SetActive(true);
                     mouseGmj[mouseLevel - 1].SetActive(false);
-                    Money.instance.money -= mouseUpgCost[mouseLevel];
                 }
                 break;
 
             case TypeOfUpgrade.MonitorUpg:
                 if (Money.instance.money >= monitorUpgCost[monitorLevel] && monitorLevel < levelMax)
                 {
+                    Money.instance.money -= monitorUpgCost[monitorLevel];
                     monitorLevel++;
                     monitorGmj[monitorLevel].SetActive(true);
                     monitorGmj[monitorLevel - 1].SetActive(false);
-                    Money.instance.money -= monitorUpgCost[monitorLevel];
                 }
                 break;
 
             case TypeOfUpgrade.KeyBoardUpg:
                 if (Money.instance.money >= keyBoardUpgCost[keyboardLevel] && keyboardLevel < levelMax)
                 {
+                    Money.instance.money -= keyBoardUpgCost[keyboardLevel];
                     keyboardLevel++;
                     keyBoardGmj[keyboardLevel].SetActive(true);
                     keyBoardGmj[keyboardLevel - 1].SetActive(false);
-                    Money.instance.money -= keyBoardUpgCost[keyboardLevel];
                 }
                 break;
 
             case TypeOfUpgrade.ChairUpg:
                 if (Money.instance.money >= chairUpgCost[chairLevel] && chairLevel < levelMax)
                 {
+                    Money.instance.money -= chairUpgCost[chairLevel];
                     chairLevel++;
                     chairGmj[chairLevel].SetActive(true);
                     chairGmj[chairLevel - 1].SetActive(false);
-                    Money.instance.money -= chairUpgCost[chairLevel];
                 }
                 break;
 
             case TypeOfUpgrade.HeadphoneUpg:
                 if (Money.instance.money >= headphoneUpgCost[headphoneLevel] && headphoneLevel < levelMax)
                 {
+                    Money.instance.money -= headphoneUpgCost[headphoneLevel];
                     headphoneLevel++;
                     headphoneGmj[headphoneLevel].SetActive(true);
                     headphoneGmj[headphoneLevel - 1].SetActive(false);
-                    Money.instance.money -= headphoneUpgCost[headphoneLevel];
                 }
                 break;
 
             case TypeOfUpgrade.WebcamUpg:
                 if (Money.instance.money >= webcamUpgCost[webcamLevel] && webcamLevel < levelMax)
                 {
+                    Money.instance.money -= webcamUpgCost[webcamLevel];
                     webcamLevel++;
                     webcamGmj[webcamLevel].SetActive(true);
                     webcamGmj[webcamLevel - 1].SetActive(false);
-                    Money.instance.money -= webcamUpgCost[webcamLevel];
                 }
                 break;
 
             case TypeOfUpgrade.BedUpg:
                 if (Money.instance.money >= bedUpgCost[bedLevel] && bedLevel < levelMax)
                 {
+                    Money.instance.money -= bedUpgCost[bedLevel];
                     bedLevel++;
                     bedGmj[bedLevel].SetActive(true);
                     bedGmj[bedLevel - 1].SetActive(false);
-                    Money.instance.money -= bedUpgCost[bedLevel];
                 }
                 break;
 
             case TypeOfUpgrade.PcUpg:
                 if (Money.instance.money >= pcUpgCost[pcLevel] && pcLevel < levelMax)
                 {
+                    Money.instance.money -= pcUpgCost[pcLevel];
                     pcLevel++;
                     pcGmj[pcLevel].SetActive(true);
                     pcGmj[pcLevel - 1].SetActive(false);
-                    Money.instance.money -= pcUpgCost[pcLevel];
                 }
                 break;
         }

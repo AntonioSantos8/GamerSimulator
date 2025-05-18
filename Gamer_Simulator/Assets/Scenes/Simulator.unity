@@ -1483,28 +1483,164 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseGmj:
   - {fileID: 435267587}
+  - {fileID: 739963964}
+  - {fileID: 1024972238}
+  - {fileID: 1658149064}
+  - {fileID: 2082124541}
+  - {fileID: 82773918}
+  - {fileID: 930294633}
+  - {fileID: 862416976}
+  - {fileID: 184962961}
   monitorGmj:
   - {fileID: 2026257037}
+  - {fileID: 1356426526}
+  - {fileID: 1803955924}
+  - {fileID: 1766393971}
+  - {fileID: 938817523}
+  - {fileID: 1358528402}
+  - {fileID: 166268300}
+  - {fileID: 1412938837}
+  - {fileID: 132314516}
   keyBoardGmj:
   - {fileID: 1818436646}
+  - {fileID: 558906599}
+  - {fileID: 2088704783}
+  - {fileID: 1147803125}
+  - {fileID: 2049215038}
+  - {fileID: 1973432095}
+  - {fileID: 422494878}
+  - {fileID: 1274364365}
+  - {fileID: 1072238922}
   chairGmj:
   - {fileID: 3455292422228167248}
+  - {fileID: 648345919}
+  - {fileID: 1603284013}
+  - {fileID: 1569296461}
+  - {fileID: 2600939636316558357}
+  - {fileID: 627376912}
+  - {fileID: 264045794}
+  - {fileID: 85742599}
+  - {fileID: 1946891500}
   headphoneGmj:
   - {fileID: 872947023}
+  - {fileID: 1704107794}
+  - {fileID: 1085630499}
+  - {fileID: 1533195264}
+  - {fileID: 274693120}
+  - {fileID: 1658434292}
+  - {fileID: 953273462}
+  - {fileID: 1393200607}
+  - {fileID: 1679649433}
   webcamGmj:
   - {fileID: 843214209967598440}
+  - {fileID: 727876140}
+  - {fileID: 1546267587}
+  - {fileID: 357730615}
+  - {fileID: 766872972}
+  - {fileID: 1498033232}
+  - {fileID: 557538255}
+  - {fileID: 233914393}
+  - {fileID: 1304989699}
   bedGmj:
   - {fileID: 7711234362281122913}
+  - {fileID: 1737107838}
+  - {fileID: 47411900}
+  - {fileID: 1857789282}
+  - {fileID: 2138280305}
+  - {fileID: 314678348}
+  - {fileID: 1923597872}
+  - {fileID: 489006257}
+  - {fileID: 116373538}
   pcGmj:
   - {fileID: 114754545}
-  mouseUpgCost: []
-  monitorUpgCost: []
-  keyBoardUpgCost: []
-  chairUpgCost: []
-  headphoneUpgCost: []
-  webcamUpgCost: []
-  bedUpgCost: []
-  pcUpgCost: []
+  - {fileID: 810581711}
+  - {fileID: 953208306}
+  - {fileID: 2034880995}
+  - {fileID: 944654739}
+  - {fileID: 1428751609}
+  - {fileID: 352996069}
+  - {fileID: 874120513}
+  - {fileID: 597875871}
+  mouseUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  monitorUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  keyBoardUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  chairUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  headphoneUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  webcamUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  bedUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
+  pcUpgCost:
+  - 10
+  - 25
+  - 50
+  - 150
+  - 500
+  - 800
+  - 2000
+  - 5000
+  - 20000
 --- !u!4 &312035648
 Transform:
   m_ObjectHideFlags: 0
