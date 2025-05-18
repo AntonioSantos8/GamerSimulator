@@ -19,7 +19,7 @@ public class EnergyManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayerStates.instance.OnSit.AddListener(delegate
+        PlayerStates.instance.OnStream.AddListener(delegate
         {
             loseEnergyCoroutine = StartCoroutine(LoseEnergy());
         });
@@ -44,19 +44,21 @@ public class EnergyManager : MonoBehaviour
     {
         if (energy >= minSleepEnergy)
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
 
     }
     public IEnumerator LoseEnergy()
     {
+      
         energyBar.gameObject.SetActive(true);
+        energyBar.fillAmount = energy / maxEnergy;
         energy -= energyToLose; 
-        energy = Mathf.Clamp(energy, 0, minSleepEnergy);
+    
         yield return new WaitForSeconds(1f);
         if (CanLoseEnergy())
         {
@@ -65,7 +67,7 @@ public class EnergyManager : MonoBehaviour
         else
         { 
             energyBar.gameObject.SetActive(false);
-
+            PlayerStates.instance.ChangeState(PlayerState.Sit);
 
         }
     }
@@ -73,7 +75,8 @@ public class EnergyManager : MonoBehaviour
     public IEnumerator GainEnergy()
     {
         energyBar.gameObject.SetActive(true);
-        energy -= energyToGain; 
+          energyBar.fillAmount = energy / maxEnergy;
+        energy += energyToGain; 
         energy = Mathf.Clamp(energy, 0, maxEnergy);
         yield return new WaitForSeconds(1f);
         if (CanGetEnergy())
