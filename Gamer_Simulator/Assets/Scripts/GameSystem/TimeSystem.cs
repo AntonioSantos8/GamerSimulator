@@ -13,11 +13,11 @@ public class TimeSystem : MonoBehaviour
     public static TimeSystem instance;
 
     public DayState currentState = DayState.Day; 
-    float dayDuration = 60f;
-    float nightDuration = 30f;
+    [SerializeField]float dayDuration = 60f;
+    [SerializeField]float nightDuration = 30f;
 
     public int currentDay = 1;
-    public UnityEvent onDayStart, OnNightStart;
+    public UnityEvent OnDayStart, OnNightStart;
 
     void Awake()
     {
@@ -31,7 +31,7 @@ public class TimeSystem : MonoBehaviour
         {
             case DayState.Day:
              currentDay++;
-                onDayStart?.Invoke();
+                OnDayStart?.Invoke();
                 break;
             case DayState.Night:
                 OnNightStart?.Invoke();
@@ -51,6 +51,7 @@ public class TimeSystem : MonoBehaviour
             {
                 yield return new WaitForSeconds(nightDuration);
                ChangeDayState(DayState.Day);
+                print("Day " + currentDay);
                
                
             }
