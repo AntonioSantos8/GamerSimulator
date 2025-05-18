@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum DayState
 {
@@ -11,21 +12,32 @@ public class TimeSystem : MonoBehaviour
 {
     public static TimeSystem instance;
 
-    public DayState currentState = DayState.Day;
+    public DayState currentState = DayState.Day; 
     float dayDuration = 60f;
     float nightDuration = 30f;
 
     public int currentDay = 1;
+    public UnityEvent onDayStart, OnNightStart;
 
-    public delegate void OnNewDay(int day);
-    public static event OnNewDay onNewDay;
-
-    void Start()
+    void Awake()
     {
         instance = this;
         StartCoroutine(TimeCycle());
     }
-
+    void ChangeDayState(DayState newState)
+    {
+        currentState = newState;
+        switch (currentState)
+        {
+            case DayState.Day:
+             currentDay++;
+                onDayStart?.Invoke();
+                break;
+            case DayState.Night:
+                OnNightStart?.Invoke();
+                break;
+        }
+    }
     IEnumerator TimeCycle()
     {
         while (true)
@@ -33,14 +45,14 @@ public class TimeSystem : MonoBehaviour
             if (currentState == DayState.Day)
             {
                 yield return new WaitForSeconds(dayDuration);
-                currentState = DayState.Night;
+                ChangeDayState(DayState.Night);
             }
             else if (currentState == DayState.Night)
             {
                 yield return new WaitForSeconds(nightDuration);
-                currentState = DayState.Day;
-                currentDay++;
-                onNewDay?.Invoke(currentDay);
+               ChangeDayState(DayState.Day);
+               
+               
             }
         }
     }
