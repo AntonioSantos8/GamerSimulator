@@ -2,27 +2,42 @@ using UnityEngine;
 
 public class ComputerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject computerUi; 
+    [SerializeField] private GameObject farCam;
+    [SerializeField] private GameObject pcCam;
+
+    private bool isInPc = false;
+
     void Start()
     {
-        PlayerStates.instance.OnStream.AddListener(delegate
+        PlayerStates.instance.OnStream.AddListener(() =>
         {
-             computerUi.SetActive(false);
+            farCam.SetActive(false);
+            pcCam.SetActive(true);
+            isInPc = true;
         });
-      
-    }     
-   void Update()
-   {
-       if (Input.GetKeyDown(KeyCode.E) && PlayerStates.instance.currentState == PlayerState.Sit)
-       {
-            if (PlayerStates.instance.currentState == PlayerState.Sit || PlayerStates.instance.currentState == PlayerState.Streaming)
-            {
-                computerUi.SetActive(!computerUi.activeSelf);
-            }
+    }
 
-             
-         
-       }
-     
-   }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            var state = PlayerStates.instance.currentState;
+
+            if (state == PlayerState.Sit || state == PlayerState.Streaming)
+            {
+                if (!isInPc)
+                {
+                    pcCam.SetActive(true);
+                    farCam.SetActive(false);
+                    isInPc = true;
+                }
+                else
+                {
+                    pcCam.SetActive(false);
+                    farCam.SetActive(true);
+                    isInPc = false;
+                }
+            }
+        }
+    }
 }
