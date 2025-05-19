@@ -2,17 +2,14 @@ using UnityEngine;
 
 public class ComputerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject farCam;
-    [SerializeField] private GameObject pcCam;
-
+    [SerializeField]Animator camAnim;
     private bool isInPc = false;
 
     void Start()
     {
         PlayerStates.instance.OnStream.AddListener(() =>
         {
-            farCam.SetActive(false);
-            pcCam.SetActive(true);
+            camAnim.Play("ToPC");
             isInPc = true;
         });
     }
@@ -27,14 +24,12 @@ public class ComputerManager : MonoBehaviour
             {
                 if (!isInPc)
                 {
-                    pcCam.SetActive(true);
-                    farCam.SetActive(false);
+                    camAnim.Play("ToPC");
                     isInPc = true;
                 }
                 else
                 {
-                    pcCam.SetActive(false);
-                    farCam.SetActive(true);
+                    camAnim.Play("ToFar");
                     isInPc = false;
                 }
             }
