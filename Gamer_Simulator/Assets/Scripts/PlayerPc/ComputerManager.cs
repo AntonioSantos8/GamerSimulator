@@ -15,6 +15,7 @@ public class ComputerManager : MonoBehaviour
             {
                 camAnim.Play("ToFar");
                 PlayerStates.instance.wasInPc = false;
+                   canAnimate = false;
             }
         });
         PlayerStates.instance.OnPcOpen.AddListener(() =>
@@ -22,20 +23,22 @@ public class ComputerManager : MonoBehaviour
            if (!canAnimate) return;
 
            camAnim.Play("ToPc");
+           canAnimate = false;
            PlayerStates.instance.wasInPc = true;
        });
 
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        
+        if (Input.GetKeyDown(KeyCode.E) && canAnimate)
         {
             if (PlayerStates.instance.currentState == PlayerState.PcOpen)
             {
                 PlayerStates.instance.ChangeState(PlayerState.Sit);
 
             }
-            else
+            else if (PlayerStates.instance.currentState == PlayerState.Sit)
             {
                 PlayerStates.instance.ChangeState(PlayerState.PcOpen);
 
