@@ -7,14 +7,16 @@ public enum PlayerState
     Streaming,
     Sleeping,
     WalkingToBed,
-    WalkingToChair
+    WalkingToChair,
+    PcOpen
 }
 public class PlayerStates : MonoBehaviour
 {
     public static PlayerStates instance;
     public PlayerState currentState;
+    public bool wasInPc;
 
-    public UnityEvent OnSit, OnStream, OnSleep, OnWalkToBed, OnWalkToChair;
+    public UnityEvent OnSit, OnStream, OnSleep, OnWalkToBed, OnWalkToChair, OnPcOpen;
     void Awake()
     {
         instance = this;
@@ -33,11 +35,12 @@ public class PlayerStates : MonoBehaviour
         {
              EnergyManager.instance.StopAllCoroutines();
         }
-        {
+       
+        
             
 
 
-         }
+         
         if (currentState == newState)
         {
             return;
@@ -46,16 +49,21 @@ public class PlayerStates : MonoBehaviour
 
         
         currentState = newState;
+       
         if (currentState != PlayerState.Streaming)
         {
             EarnMoneyManager.instance.StopAllCoroutines();
 
 
-         }
+        }
        switch (currentState)
         {
             case PlayerState.Sit:
                     OnSit?.Invoke();
+                    
+                break;
+                case PlayerState.PcOpen:
+                    OnPcOpen?.Invoke();
                 break;
             case PlayerState.WalkingToBed:
                 OnWalkToBed?.Invoke();

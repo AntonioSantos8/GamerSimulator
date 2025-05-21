@@ -3527,7 +3527,6 @@ GameObject:
   - component: {fileID: 858301984}
   - component: {fileID: 858301986}
   - component: {fileID: 858301987}
-  - component: {fileID: 858301988}
   - component: {fileID: 858301989}
   - component: {fileID: 858301990}
   - component: {fileID: 858301991}
@@ -3552,6 +3551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  wasInPc: 0
   OnSit:
     m_PersistentCalls:
       m_Calls: []
@@ -3565,6 +3565,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnWalkToChair:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPcOpen:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &858301985
@@ -3615,19 +3618,6 @@ MonoBehaviour:
   energyToLose: 10
   energyToGain: 20
   energyBar: {fileID: 1973448501}
---- !u!114 &858301988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858301983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd36319f17396084e8c912eab0d36f31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camAnim: {fileID: 1041832456}
 --- !u!114 &858301989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4634,6 +4624,7 @@ GameObject:
   - component: {fileID: 1041832452}
   - component: {fileID: 1041832455}
   - component: {fileID: 1041832456}
+  - component: {fileID: 1041832457}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4781,6 +4772,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1041832457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041832451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd36319f17396084e8c912eab0d36f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camAnim: {fileID: 1041832456}
 --- !u!1 &1072238922
 GameObject:
   m_ObjectHideFlags: 0

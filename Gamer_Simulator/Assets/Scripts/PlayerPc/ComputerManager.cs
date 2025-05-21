@@ -2,37 +2,52 @@ using UnityEngine;
 
 public class ComputerManager : MonoBehaviour
 {
-    [SerializeField]Animator camAnim;
-    private bool isInPc = false;
+    [SerializeField] Animator camAnim;
 
+    bool canAnimate;
     void Start()
     {
-        PlayerStates.instance.OnStream.AddListener(() =>
+        canAnimate = true;
+        PlayerStates.instance.OnSit.AddListener(() =>
         {
-            camAnim.Play("ToPC");
-            isInPc = true;
-        });
-    }
 
+            if (PlayerStates.instance.wasInPc && canAnimate)
+            {
+                camAnim.Play("ToFar");
+                PlayerStates.instance.wasInPc = false;
+            }
+        });
+        PlayerStates.instance.OnPcOpen.AddListener(() =>
+       {
+           if (!canAnimate) return;
+
+           camAnim.Play("ToPc");
+           PlayerStates.instance.wasInPc = true;
+       });
+
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            var state = PlayerStates.instance.currentState;
-
-            if (state == PlayerState.Sit || state == PlayerState.Streaming)
+            if (PlayerStates.instance.currentState == PlayerState.PcOpen)
             {
-                if (!isInPc)
-                {
-                    camAnim.Play("ToPC");
-                    isInPc = true;
-                }
-                else
-                {
-                    camAnim.Play("ToFar");
-                    isInPc = false;
-                }
+                PlayerStates.instance.ChangeState(PlayerState.Sit);
+
             }
+            else
+            {
+                PlayerStates.instance.ChangeState(PlayerState.PcOpen);
+
+            }
+
         }
+
     }
+    public void SetCanAnimate()
+    {
+        canAnimate = true;
+    }
+
+   
 }
